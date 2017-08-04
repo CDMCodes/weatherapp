@@ -4,6 +4,7 @@
   <meta charset = "utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="style.css" type="text/css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
   <title>Local Weather</title>
 </head>
 <body>
@@ -14,10 +15,10 @@
     <p id="location">Location:</p>
     <p id="wximg">Weather Img</p>
     <p id="wxdesc">Weather</p>
-    <p id="temp">Temperature</p>
+    <div id="tempbox">
+      <p id="temp">Temperature</p><button id="convert">Celsiuis</button>
+    </div>
     <p id="hilo">High / Low Temp</p>
-    <button id="convert">Celsiuis</button>
-
   </div>
   <footer>
     <p>Part of the freeCodeCamp curriculum. Weather Data from Free Code Camp weather API pass-through.</p>

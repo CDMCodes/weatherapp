@@ -28,8 +28,8 @@ $(document).ready(function(){
      tempmin = celtofahr(tempmin);
      tempmax = celtofahr(tempmax);
      //console.log("temp is:" +temp);
-     $("#temp").html("<p>"+temp+"</p>");
-     $("#hilo").html("<p>"+ tempmin +" / " + tempmax +"</p>");
+     $("#temp").text(temp);
+     $("#hilo").text(tempmin +" / " + tempmax);
    }else{
      prefCel = true;
      $("#convert").text("Celsius");
@@ -38,25 +38,28 @@ $(document).ready(function(){
      tempmin = fahrtocel(tempmin);
      tempmax = fahrtocel(tempmax);
      //console.log("temp is: "+temp);
-     $("#temp").html("<p>"+temp+"</p>");
-     $("#hilo").html("<p>"+ tempmin +" / " + tempmax +"</p>");
+     $("#temp").text(temp);
+     $("#hilo").text(tempmin +" / " + tempmax);
    }
   });
 
   //On click of get weather button
   $("#getWeather").click(function(){
+    //first show temp convert button
+    $("#convert").css("display","inline");
+
     // API call as it's own function
     function weatherCall(latstring, longstring){
       $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+latstring+"&lon="+longstring, function(result){
         console.log(result);
-        $("#location").html("<p>"+result.name+"</p>");
+        $("#location").text(result.name);
         $("#wximg").html("<img src="+result.weather[0].icon+" alt="+result.weather[0].icon+"/>");
-        $("#wxdesc").html("<p>"+result.weather[0].main+"</p>");
+        $("#wxdesc").text(result.weather[0].main);
         temp = (prefCel) ? result.main.temp : celtofahr(result.main.temp);
-        $("#temp").html("<p>"+result.main.temp+"</p>");
+        $("#temp").text(temp);
         tempmin = (prefCel) ? result.main.temp_min : celtofahr(result.main.temp_min);
         tempmax = (prefCel) ? result.main.temp_max : celtofahr(result.main.temp_max);
-        $("#hilo").html("<p>"+tempmin+" / " + tempmax +"</p>");
+        $("#hilo").text(tempmin+" / " + tempmax);
       });
     }
 

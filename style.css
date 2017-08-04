@@ -1,6 +1,56 @@
+body {
+  text-align:center;
+  font-family:'Comfortaa', cursive;
+}
+
+button {
+  border: none;
+  border-radius:2px;
+  font-size: 1em;
+}
+
+button:hover{
+  background-color:#002868;
+  color: white;
+}
 
 footer {
   font-style:italic;
   font-size:0.8em;
-  text-align:center;
+  position: absolute;
+  bottom: 0;
+}
+
+#convert {
+  display: none;
+  margin: 10px;
+  /*display: inline;*/
+}
+
+#location {
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+#wxdesc {
+  font-style:italic;
+  font-size:1.25em;
+}
+
+img {
+  height: 100px;
+  width: auto;
+}
+
+#tempbox{
+  display:inline;
+}
+
+#temp{
+  display:inline;
+  font-size:1.25em;
+}
+
+#hilo{
+  font-size:1em;
 }
