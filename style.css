@@ -7,7 +7,14 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0px;
+  padding: 0px;
 
+}
+
+h1{
+  margin:0;
+  padding:0;
 }
 
 button {
@@ -23,7 +30,7 @@ button:hover{
 
 footer {
   font-style:italic;
-  font-size:0.8em;
+  font-size:0.6em;
   position: absolute;
   bottom: 0;
   margin-bottom: 20px;
@@ -47,11 +54,6 @@ footer {
   font-size:1.25em;
 }
 
-img {
-  height: 100px;
-  width: auto;
-}
-
 #tempbox{
   display:inline;
 }
@@ -63,4 +65,17 @@ img {
 
 #hilo{
   font-size:1em;
+}
+
+@media (min-width: 500px) {
+  img {
+    height: 100px;
+    width: auto;
+  }
+  footer {
+    font-size: 0.8em;
+  }
+  h1{
+    margin: 10px;
+  }
 }
