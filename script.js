@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  //declare functions for temperature conversion
   function celtofahr(cel){
     return (cel / (5.0 / 9.0)) + 32.0;
   }
@@ -6,12 +7,6 @@ $(document).ready(function(){
     return (fahr - 32.0) * (5.0/9.0);
   }
 
-  var lat = ""
-  var long = ""
-  var wx_img = ""
-  var temp = ""
-  var degree = ""
-  var city = ""
 
   //On click of get weather button
   $("#getWeather").click(function(){
@@ -23,13 +18,17 @@ $(document).ready(function(){
       var long = position.coords.longitude;
       console.log("lat = " + lat + "  long = " + long);
       $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+long, function(result){
-        var city = result.name;
-        var temp = result.main[0];
-        var low = result.main[4];
-        var high = result.main[5];
-        var img = result.weather[0].icon;
-        var type = result.weather[0].main;
-        console.log(city);
+        //var city = result.name;
+        $("#location").html("<p>"+result.name+"</p>");
+        //var temp = result.main.temp;
+        $("#temp").html("<p>"+result.main.temp+" Celsius</p>");
+        //var low = result.main.temp_min;
+        //var high = result.main.temp_max;
+        $("#hilo").html("<p>"+result.main.temp_min+" / " + result.main.temp_max+"</p>");
+        // var img = result.weather[0].icon;
+        $("#wximg").html("<img src="+result.weather[0].icon+" alt="+result.weather[0].icon+"/>");
+        // var type = result.weather[0].main;
+        $("#wxdesc").html("<p>"+result.weather[0].main+"</p>");
       });
     }
 
