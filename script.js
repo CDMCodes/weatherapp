@@ -6,18 +6,12 @@ $(document).ready(function(){
     return (fahr - 32.0) * (5.0/9.0);
   }
 
-  var temp = 0;
-  var degree = "F"
-  if(degree == "F"){
-    temp = fahrtocel(temp)
-    degree = "C"
-  }else{
-    temp = celtofahr(temp);
-    degree = "F";
-  }
-
   var lat = ""
   var long = ""
+  var wx_img = ""
+  var temp = ""
+  var degree = ""
+  var city = ""
 
   //On click of get weather button
   $("#getWeather").click(function(){
@@ -28,6 +22,15 @@ $(document).ready(function(){
       var lat = position.coords.latitude;
       var long = position.coords.longitude;
       console.log("lat = " + lat + "  long = " + long);
+      $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+lat+"&lon="+long, function(result){
+        var city = result.name;
+        var temp = result.main[0];
+        var low = result.main[4];
+        var high = result.main[5];
+        var img = result.weather[0].icon;
+        var type = result.weather[0].main;
+        console.log(city);
+      });
     }
 
     //define what to do if get position fails
@@ -35,6 +38,7 @@ $(document).ready(function(){
       console.log(err.code);
     }
 
+    //run get location if available
     if(navigator.geolocation){
       navigator.geolocation.getCurrentPosition(success, error);
     }else{
@@ -42,8 +46,16 @@ $(document).ready(function(){
     }
   });
 
+
   $("#convert").click(function(){
     console.log("you clicked convert");
+    if(degree == "F"){
+      temp = fahrtocel(temp)
+      degree = "C"
+    }else{
+      temp = celtofahr(temp);
+      degree = "F";
+    }
   });
 
 });
