@@ -16,6 +16,7 @@ $(document).ready(function(){
   var tempmax = null;
   var lat = null;
   var long = null;
+  var attempts = 0;
 
   //Set degree preference by clicing button
   $("#convert").click(function(){
@@ -74,7 +75,11 @@ $(document).ready(function(){
     //define what to do if get position fails
     function error(err) {
       console.log(err.code);
+      attempts += 1;
       //Use Montreal lat long, so at least there is some data
+      if(attempts<=1) {
+        $("#location").before("<p>Location failed. How about weather for:");
+      }
       lat = "46.815736";
       long = "-71.207750";
       weatherCall(lat,long);

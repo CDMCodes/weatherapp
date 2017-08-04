@@ -1,6 +1,13 @@
 body {
   text-align:center;
   font-family:'Comfortaa', cursive;
+  color:white;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/a/a2/Clouds_above_London.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
 }
 
 button {
@@ -19,6 +26,9 @@ footer {
   font-size:0.8em;
   position: absolute;
   bottom: 0;
+  margin-bottom: 20px;
+  color:white;
+  background-color:rgba(170, 170, 170, 0.3)
 }
 
 #convert {
