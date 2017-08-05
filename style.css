@@ -33,9 +33,19 @@ footer {
   font-size:0.6em;
   position: absolute;
   bottom: 0;
-  margin-bottom: 20px;
-  color:white;
-  background-color:rgba(170, 170, 170, 0.3)
+  left:0;
+  color:black;
+  background-color:white;
+  width: 100%;
+}
+
+footer p {
+    margin-bottom: 20px;
+}
+
+img{
+    height: 50px;
+    width: 50px;
 }
 
 #convert {
@@ -77,5 +87,15 @@ footer {
   }
   h1{
     margin: 10px;
+  }
+}
+
+@media (min-width:  750px){
+  body{
+    margin: 15px;
+  }
+  img {
+    height: 150px;
+    width: auto;
   }
 }

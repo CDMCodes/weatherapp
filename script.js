@@ -54,7 +54,13 @@ $(document).ready(function(){
       $.getJSON("https://fcc-weather-api.glitch.me/api/current?lat="+latstring+"&lon="+longstring, function(result){
         console.log(result);
         $("#location").text(result.name);
-        $("#wximg").html("<img src="+result.weather[0].icon+" alt="+result.weather[0].icon+"/>");
+        if(typeof result.weather[0].icon == "undefined"){
+          $("#wximg").attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/No_image_3x4.svg/1024px-No_image_3x4.svg.png");
+        }else{
+          $("#wximg").attr("src", result.weather[0].icon);
+          $("#wximg").attr("alt", result.weather[0].main);
+        }
+        // $("#wximg").html("<img src="+result.weather[0].icon+" alt="+result.weather[0].icon+"/>");
         $("#wxdesc").text(result.weather[0].main);
         temp = (prefCel) ? result.main.temp : celtofahr(result.main.temp);
         $("#temp").text(temp);
